@@ -1,0 +1,254 @@
+\documentclass[a4paper,12pt,oneside,openright,extrafontsizes,openbib]{memoir}
+\input{definicoes}
+
+\begin{document}
+%NÃO ALTERAR O TRECHO ABAIXO. SÃO AS CONFIGS. DOS PRÉ-TEXTUAIS.
+    \begin{titlingpage}
+	\input{pretextuais}
+    \end{titlingpage}
+%INÍCIO DOS ELEMENTOS TEXTUAIS (CAPS./SEÇÕES)
+\mainmatter{
+\chapter*{Apresentação}\label{ch:apres}
+\addcontentsline{toc}{chapter}{Apresentação}
+Este modelo de documento foi elaborado para atender às necessidades dos estudantes dos cursos de graduação do IFPE Campus Garanhuns.
+
+Quaisquer modificações que eventualmente venham a ser feita devem ocorrer no arquivo \textbf{definicoes.tex} e obedecer à estrutura do projeto. Veja o README.md no Github para explicações adicionais.
+
+%Nome do seu capítulo/seção 1. Use a ref. cruzada como em \label
+\chapter{Pacotes e ambiente incluídos}\label{ch:01}
+Para detalhes sobre os pacotes incluídos nesse modelo, veja o arquivo \textbf{definicoes.tex} para informações básicas ou acesse os \textit{links} disponíveis ao longo do documento para ler a documentação. 
+
+Os exemplos de uso, incluindo o código \LaTeX, de cada um deles estão na seção Apêndices.
+
+\section{Lettrine}\label{sec:Lettrine}
+
+\lettrine[findent=2pt]{\fbox{\textbf{V}}}{eja essa frase de abertura...} \lipsum[1]
+
+\textsc{Pacote:} lettrine
+
+Acesso: \url{https://www.ctan.org/pkg/lettrine}
+
+\section{Verbatim}\label{sec:Verbatim}
+
+\textsc{Pacote:} verbatim
+
+Acesso: \url{https://www.ctan.org/pkg/verbatim}
+
+\section{Inserir páginas em .pdf}\label{sec:pdfpages}
+
+\textsc{Pacote:} pdfpages
+
+\url{https://www.ctan.org/pkg/pdfpages}
+
+\section{Texto em várias colunas}\label{sec:multicol}
+
+\textsc{Pacote:} multicol
+
+\url{https://www.ctan.org/pkg/multicol}
+
+Outra possibilidade de inserção de texto em mais de uma coluna em uma página é através do uso de tabelas ou do ambiente \verb|minipage|. 
+
+Para esse último, o código básico é:
+
+\begin{codex}{Ambiente minipage básico}
+    \begin{minipage}{4cm}
+       Os {4cm} indicados acima apontam para a largura desejada da "minipage". 
+    \end{minipage}
+\end{codex}
+
+Veja \url{https://www.alessandroduarte.com.br/?page_id=602} para um tutorial em português.
+
+\section{Diagramas}\label{sec:smartdiagram{}
+
+\textsc{Pacote:} smartdiagram
+
+\url{https://www.ctan.org/pkg/smartdiagram}
+
+\section{Aspas e outros símbolos tipográficos}\label{sec:textcmds}
+
+\textsc{Pacote:} textcmds
+
+\url{https://ctan.math.illinois.edu/macros/latex/contrib/amsrefs/textcmds.pdf}
+
+Esse pacote foi incluído porque em modo \textit{offline} o \LaTeX habitualmente não reconhece os espaços necessários entre as aspas. O Overleaf já o faz nativamente (embora eu tenha observado erros nas aspas simples...).
+
+\section{Hiperlinks com quebra de endereço por linha}\label{sec:xurl}
+
+\textsc{Pacote:} xurl
+
+\url{https://www.ctan.org/pkg/xurl}
+
+\section{Tabelas}\label{sec:tabularx}
+
+\textsc{Pacote:} tabularx
+
+\url{https://www.ctan.org/pkg/tabularx}
+
+\section{Imagens}\label{sec:graphicx}
+
+\textsc{Pacote:} graphicx
+
+\url{https://www.ctan.org/pkg/graphicx}
+
+\section{Inserção de códigos de programação}\label{sec:codes}
+
+\textsc{Importante:} Somente consegui reproduzir no Overleaf o pacote \verb|codebox|. Os pacotes \verb|shdoc| e \verb|pygmentex| não compilaram adequadamente, resultando em erros. Sugiro que tentem no modo \textit{offline} (\LaTeX\ instalado no computador).
+
+\subsection{codebox}\label{subsec:codebox}
+\textsc{Pacote:} codebox
+
+\url{https://www.ctan.org/pkg/codebox}
+
+\subsection{shdoc}\label{subsec:shdoc}
+\textsc{Pacote:} shdoc
+
+\url{https://www.ctan.org/pkg/shdoc}
+
+\subsection{pygmentex}\label{subsec:pygmentex}
+\textsc{Pacote:} pygmentex
+
+\url{https://www.ctan.org/pkg/pygmentex}
+
+\section{Ambientes \LaTeX\ personalizados}\label{sec:personal}
+
+\subsection{codex}\label{subsec:codex}
+
+\subsection{observ}\label{subsec:observ}
+
+\subsection{citel}\label{subsec:citel}
+
+\subsection{Caixas de Texto}\label{subsec:caixatextos}
+
+Há diversos ambientes possíveis para criar caixas de texto neste modelo. São eles:
+
+\begin{enumerate}
+    \item codex
+    \item observ
+    \item mverde
+    \item mvermelha
+    \item bxpreta
+    \item bxlaranja
+    \item bxcinza
+    \item bxazul
+    \item bxvermelha
+    \item \textbf{alertmessage\footnote{Exceção aos listados acima. Trata-se de um comando, não de um ambiente.}}
+\end{enumerate}
+
+\textsc{Pacotes:}
+\begin{enumerate}
+    \item tcolorbox
+    \begin{itemize}
+        \item Acesso: \url{https://www.ctan.org/pkg/tcolorbox}
+    \end{itemize}
+    \item framed
+    \begin{itemize}
+        \item Acesso: \url{https://www.ctan.org/pkg/framed}
+    \end{itemize}
+    \item mdframed
+    \begin{itemize}
+        \item Acesso: \url{https://www.ctan.org/pkg/mdframed}
+    \end{itemize}
+    \item alertmessage
+    \begin{itemize}
+        \item Acesso: \url{https://www.ctan.org/pkg/alertmessage}
+    \end{itemize}
+\end{enumerate}
+
+\chapter{Estrutura do projeto}
+
+Esse modelo contém seis arquivos e uma pasta que devem ser enviados para o Overleaf após a criação da conta gratuita na plataforma.
+
+No caso de uso \textit{offline} do \LaTeX, descompacte o .zip baixado do GitHub para uma pasta e siga as mesmas orientações.
+
+\section{definicoes.tex}
+
+Contém todas as definições do modelo conforme a ABNT 14721:2011 além de todos os pacotes e ambientes utilizados. Ver os \textbf{Apêndices} para uma explicação dos comandos e ambientes.
+
+\section{pretextuais.tex}
+
+Estão todas as informações necessárias ao projeto, tais como:
+
+\begin{itemize}
+    \item Capa
+    \item Folha de rosto
+    \item Ficha catalográfica (ver explicação abaixo)
+    \item Folha de aprovação
+    \item Epígrafe
+    \item Dedicatória
+    \item Agradecimentos
+    \item Resumo e Abstract
+\end{itemize}
+
+É nesse arquivo que as informações do estudante, título do trabalho, orientador, avaliadores, etc estão incluídas. \textsc{LEIA ESSE ARQUIVO COM ATENÇÃO.}
+
+\section{fichacatalografica.pdf}
+
+Normalmente, a ficha catalográfica é feita por um/uma bibliotecário/a e entregue em formato .doc, .docx ou .odt. 
+
+Após a elaboração pelo/a profissional responsável, imprima/converta esse arquivo para .pdf e substitua o arquivo \verb|fichacatalografica.pdf| que já vem no projeto.
+
+\section{textuais.tex}
+
+É o arquivo onde se digitam as seções (capítulos) do seu trabalho. Atentar para a primeira seção (Apresentação). A ABNT 14724:2011 não informa que esta deva ser não-numerada. Por prática, o projeto apresenta essa seção não numerada e incluída já no \textbf{Sumário}.
+
+\section{referencias.bib}
+
+Contém exemplos em branco para auxiliar o preenchimento das referências bem como exemplos já preenchidos para servirem de modelos.
+
+Alguns exemplos de citação vazia seguem abaixo.
+
+\cite{Smurf1980} - Citação direta de artigo, sem fazer parte do texto.
+
+\cite[p. 654]{Vingadores2015} - citação direta de livro com página, sem fazer parte do texto.
+
+\citeonline{Flintstones1900} - citação direta de um livro com Organizador (Org.), sem fazer parte do texto.
+
+\citeonline[p. 89]{Flintstones1900} - a mesma citação acima, com indicação da página.
+
+\cite{Vingadores2016} - citação direta de uma dissertação de mestrado, sem fazer parte do texto. (Ver próxima citação e referência)
+
+\cite{Thor2017} - citação direta de uma tese de doutorado, sem fazer parte do texto e com mesmo autor da citação acima. Observar as \textbf{Referências}.
+
+\section{postextuais.tex}
+
+Contém os Anexos e os Apêndices. Estes são elementos opcionais e, neste modelo, na parte específica dos Apêndices, trazem os exemplos de códigos, pacotes e/ou ambientes utilizados.
+
+\section{pasta img}
+
+Contém as imagens utilizadas no projeto. Use o formato .png e .jpg para não precisar instalar pacotes extras ou \qq{quebrar muito a cabeça} com conversões entre formatos.
+
+\chapter{Referências e Citações}\label{ch:refs-cit}
+
+Para a utilização correta do pacote \verb|abntex2cite| nesse projeto, é essencial a leitura dos seguintes materiais disponíveis em \url{https://www.ctan.org/pkg/abntex2}, em especial:
+
+\begin{itemize}
+    \item \url{https://linorg.usp.br/CTAN/macros/latex/contrib/abntex2/doc/abntex2cite.pdf}
+    \item \url{https://linorg.usp.br/CTAN/macros/latex/contrib/abntex2/doc/abntex2cite-alf.pdf}
+\end{itemize}
+
+Ambos os pacotes contém exemplos de uso e, também, a acentuação necessária para cada entrada bibliográfica que deve ser inserida no arquivo \verb|referencias.bib|.
+\cite{abnt}
+%===============================
+%FIM DOS ELEMENTOS TEXTUAIS (CAPS./SEÇÕES)
+%Não apagar a chave a seguir.
+}
+
+
+
+
+
+
+%INÍCIO DOS ELEMENTOS PÓS TEXTUAIS (REFERÊNCIAS, ANEXOS, APÊNDICES)
+%Início das Referências
+\backmatter{
+\renewcommand{\bibname}{Referências}
+\bibintoc
+\bibliographystyle{abntex2-alf}
+\bibliography{referencias.bib}
+%Fim das Referências
+%Se o trabalho não tiver apêndices ou anexos
+%excluir ou comentar a linha abaixo.
+\input{postextuais}
+}
+%FIM DOS ELEMENTOS PÓS TEXTUAIS (REFERÊNCIAS, ANEXOS, APÊNDICES)
+\end{document}

@@ -1,0 +1,308 @@
+%Define o tamanho da fonte para os título das seções primárias (Large)
+\chapterstyle{section}
+\renewcommand*{\chapnumfont}{\normalfont\Large\bfseries}
+\renewcommand*{\chaptitlefont}{\normalfont\Large\bfseries}
+%Algarismos arábicos nas páginas
+\pagenumbering{arabic}
+%Estilo de página
+\pagestyle{simple}
+%Define a PARTE (da classe Memoir) sem numeração de páginas.
+\aliaspagestyle{part}{empty}
+%Define secionamento numerado até a seção quaternária.
+\settocdepth{subsubsection}
+\setsecnumdepth{subsubsection}
+%Config. das notas de rodapé.
+\setlength{\footmarkwidth}{0em}
+%Espaçamento de 1pt entre os parágrafos.
+\setlength{\parskip}{1\baselineskip}
+%Define a indentação padrão do parágrafos.
+\setlength{\parindent}{1.25cm}
+%Define o espaçamento entre linhas (exceto para citações longas).
+\OnehalfSpacing
+%========================================================
+%PACOTES ESPECÍFICOS POR ÁREA DE ESTUDO/PESQUISA
+%INÍCIO COMPUTAÇÃO
+%Caixas de texto para inserção de códigos. Suporta diferentes linguagens.
+\usepackage{codebox}
+%Replicar comandos e saídas de um shell.
+\usepackage{shdoc}
+\shautoformat{true}
+%Destacar sintaxe de código em caixa de texto simples.
+\usepackage{pygmentex}
+%FIM COMPUTAÇÃO
+%========================================================
+%Geometria do tipo de papel (A4).
+\usepackage[a4paper,%
+		left=3cm,%
+		right=2cm,% 
+		top=3cm,% 
+		bottom=2cm]{geometry}
+%Medir margens do pacote Geometry.
+\usepackage{calc}
+%Fonte 10pt para legendas de figuras e tabelas
+\usepackage[font=footnotesize]{caption}
+%Gerar Lorem Ipsum.
+\usepackage{lipsum}
+%Idiomas (o último é o principal do documento).
+\usepackage[spanish,english,brazil]{babel}
+%Inserir acentos .
+\usepackage[utf8]{inputenc}
+%Tipo de fonte usada na compilação para incluir caracteres com acentos (Ö, é, à).
+\usepackage[T1]{fontenc}
+%Microtipografia conforme a língua utilizada.
+\usepackage[babel=true]{microtype}
+%Controle e personalização de listas
+\usepackage{enumitem}
+\setlist{nosep}
+%Hiperlinks internos e externos.
+%Esconder caixa vermelha das hiperligações no documento.
+%Ativar links clicáveis no pdf, com cor azul.
+\usepackage[breaklinks,%
+		hidelinks,%
+		colorlinks=true,%
+		allcolors=blue]{hyperref}
+%Digitar URL completas e clicáveis. 
+%Caso queira links com a cor igual ao texto (preto), mudar acima para 'colorlinks=false'.
+\usepackage{xurl}
+%Para escrever códigos ou trechos de códigos. Ver ambiente CODEX.
+\usepackage{verbatim}
+%Para escrever versos. Funciona como o verbatim.
+\usepackage{alltt}
+%inserir imagens.
+\usepackage{graphicx}
+%Inserir páginas PDF.
+\usepackage{pdfpages}
+%Criar multicolunas sem o ambiente "tabular".
+\usepackage{multicol}
+%Caixas de alerta. Útil para livros didáticos ou destaque de algum trecho importante.
+\usepackage{alertmessage}
+%Cores.
+\usepackage{xcolor}
+%Diagramas.
+\usepackage{smartdiagram}
+%Tabelas mais fáceis.
+\usepackage{tabularx}
+%Mais controle e personalização em tabelas.
+\usepackage{booktabs}
+%Mudar espaçamento entre linhas.
+\usepackage{setspace}
+%Indentação de todos os primeiros parágrafos.
+\usepackage{indentfirst}
+%Digitar aspas com \qq e \q.
+\usepackage{textcmds}
+%Fonte padrão do documento.
+\usepackage{times}
+%Facilidades para manipualar formatação de FONTES (riscado, espaçamento entre carcateres...).
+\usepackage{soul}
+%Destaca a primeira letra do parágrafo. Fonte maior e em caixa de texto.
+\usepackage{lettrine}
+%Símbolos fonéticos.
+\usepackage{tipa}
+%CAIXAS DE TEXTO
+%Caixas de texto "quebráveis entre páginas".
+\usepackage{mdframed}
+\usepackage{framed}
+%TCOLORBOXES
+\usepackage{tcolorbox}
+\tcbuselibrary{most,listingsutf8}
+
+%Referências e Citações
+\usepackage[alf,
+            abnt-emphasize=bf,%
+            abnt-etal-list=3,%
+            abnt-etal-text=emph,%
+            abnt-missing-year=sd,%
+            abnt-repeated-author-omit=yes,%
+            abnt-repeated-title-omit=yes,%
+            abnt-thesis-year=final,%
+            abnt-doi=link,%
+            ]{abntex2cite}
+
+%AMBIENTES PERSONALIZADOS
+%Verbatim modificaddo para incluir códigos em listas.
+%\newenvironment{mverbt}
+%{\verbatim}%
+%{\endverbatim}
+
+%Para citações longas.
+\newenvironment{citel}
+{\SingleSpacing\small\list{}{\rightmargin=0cm \leftmargin=4cm}%
+	\item\relax}%
+{\endlist}
+
+%Texto da folha de rosto (tipo de trabalho).
+\newenvironment{textofolharosto}
+{\SingleSpacing\small\list{}{\rightmargin=0cm \leftmargin=7cm}%
+	\item\relax}%
+{\endlist}
+
+%Ambiente de caixa: CODEX.
+\newtcblisting[auto counter,number within=chapter]{codex}[2][]{%
+				arc=0mm,
+				listing only,
+				colback=black!5!white,
+				colframe=black!85!white,
+				fonttitle=\bfseries,
+				title=Exemplo \thetcbcounter: #1 #2,
+				listing options={style=tcblatex,%
+								numbersep=1mm,%
+								numbers=left,%
+								numberstyle=\tiny\color{black}}
+}
+%Ambiente de caixa: OBSERVAÇÃO
+\newtcolorbox{observ}[1][]{%
+					arc=0mm,
+					listing only,
+					colback=black!5!white,
+					colframe=red,
+					fonttitle=\bfseries,
+					title=Observação: #1,
+}
+
+%TCOLORBOX com molduras coloridas.
+%Ambiente mvermelha
+\colorlet{redbx}{red!75!black}
+\newtcolorbox{mvermelha}[1]{%
+	title={#1},
+	empty,
+	attach boxed title to top left,
+	boxed title style={empty,size=minimal,
+		toprule=2pt,top=4pt,
+		overlay={\draw[redbx,line width=2pt]
+			([yshift=-1pt]frame.north west)--([yshift=-1pt]frame.north east);}},
+	coltitle=redbx,
+	fonttitle=\Large\bfseries,
+	before=\par\medskip\noindent,parbox=false,boxsep=0pt,left=0pt,right=3mm,top=4pt,
+	breakable,pad at break*=0mm,vfill before first,
+	overlay unbroken={\draw[redbx,line width=1pt]
+		([yshift=-1pt]title.north east)--([xshift=-0.5pt,yshift=-1pt]title.north-|frame.east)
+		--([xshift=-0.5pt]frame.south east)--(frame.south west); },
+	overlay first={\draw[redbx,line width=1pt]
+		([yshift=-1pt]title.north east)--([xshift=-0.5pt,yshift=-1pt]title.north-|frame.east)
+		--([xshift=-0.5pt]frame.south east); },
+	overlay middle={\draw[redbx,line width=1pt] ([xshift=-0.5pt]frame.north east)
+		--([xshift=-0.5pt]frame.south east); },
+	overlay last={\draw[redbx,line width=1pt] ([xshift=-0.5pt]frame.north east)
+		--([xshift=-0.5pt]frame.south east)--(frame.south west);},%
+}
+
+%Ambiente mverde
+\colorlet{greenbx}{green!75!black}
+\newtcolorbox{mverde}[1]{%
+	empty,title={#1},attach boxed title to top left,
+	boxed title style={empty,size=minimal,toprule=2pt,top=4pt,
+		overlay={\draw[greenbx,line width=2pt]
+			([yshift=-1pt]frame.north west)--([yshift=-1pt]frame.north east);}},
+	coltitle=greenbx,fonttitle=\Large\bfseries,
+	before=\par\medskip\noindent,parbox=false,boxsep=0pt,left=0pt,right=3mm,top=4pt,
+	breakable,pad at break*=0mm,vfill before first,
+	overlay unbroken={\draw[greenbx,line width=1pt]
+		([yshift=-1pt]title.north east)--([xshift=-0.5pt,yshift=-1pt]title.north-|frame.east)
+		--([xshift=-0.5pt]frame.south east)--(frame.south west); },
+	overlay first={\draw[greenbx,line width=1pt]
+		([yshift=-1pt]title.north east)--([xshift=-0.5pt,yshift=-1pt]title.north-|frame.east)
+		--([xshift=-0.5pt]frame.south east); },
+	overlay middle={\draw[greenbx,line width=1pt] ([xshift=-0.5pt]frame.north east)
+		--([xshift=-0.5pt]frame.south east); },
+	overlay last={\draw[greenbx,line width=1pt] ([xshift=-0.5pt]frame.north east)
+		--([xshift=-0.5pt]frame.south east)--(frame.south west);},%
+}
+
+%Caixas de textto com MDFRAMED
+\newenvironment{bxpreta}
+{\begin{mdframed}
+		[skipabove=7pt,
+		skipbelow=7pt,
+		rightline=false,
+		leftline=true,
+		topline=false,
+		bottomline=false,
+		backgroundcolor=black!5,
+		linecolor=black,
+		innerleftmargin=5pt,
+		innerrightmargin=5pt,
+		innertopmargin=5pt,
+		innerbottommargin=5pt,
+		leftmargin=0cm,
+		rightmargin=0cm,
+		linewidth=5pt]}
+	{\end{mdframed}}
+
+\newenvironment{bxlaranja}
+{\begin{mdframed}
+		[skipabove=7pt,
+		skipbelow=7pt,
+		rightline=false,
+		leftline=true,
+		topline=false,
+		bottomline=false,
+		backgroundcolor=black!5,
+		linecolor=orange,
+		innerleftmargin=5pt,
+		innerrightmargin=5pt,
+		innertopmargin=5pt,
+		innerbottommargin=5pt,
+		leftmargin=0cm,
+		rightmargin=0cm,
+		linewidth=5pt]}
+	{\end{mdframed}}
+
+%Caixa Fundo cinza, Borda cinza
+\newenvironment{bxcinza}
+{\begin{mdframed}
+		[skipabove=7pt,
+		skipbelow=7pt,
+		rightline=false,
+		leftline=true,
+		topline=false,
+		bottomline=false,
+		linecolor=gray,
+		backgroundcolor=black!5,
+		innerleftmargin=5pt,
+		innerrightmargin=5pt,
+		innertopmargin=5pt,
+		leftmargin=0cm,
+		rightmargin=0cm,
+		linewidth=4pt,
+		innerbottommargin=5pt]}
+	{\end{mdframed}}
+
+%Caixa Fundo azul, Borda azul
+\newenvironment{bxazul}
+{\begin{mdframed}
+		[skipabove=7pt,
+		skipbelow=7pt,
+		rightline=false,
+		leftline=true,
+		topline=false,
+		bottomline=false,
+		linecolor=blue!40!gray,
+		backgroundcolor=black!5,
+		innerleftmargin=5pt,
+		innerrightmargin=5pt,
+		innertopmargin=5pt,
+		leftmargin=0cm,
+		rightmargin=0cm,
+		linewidth=4pt,
+		innerbottommargin=5pt]}
+	{\end{mdframed}}
+
+%Borda vermelha
+\newenvironment{bxvermelha}
+{\begin{mdframed}
+		[skipabove=7pt,
+		skipbelow=7pt,
+		rightline=false,
+		leftline=true,
+		topline=false,
+		bottomline=false,
+		backgroundcolor=black!5,
+		linecolor=red!40!gray,
+		innerleftmargin=5pt,
+		innerrightmargin=5pt,
+		innertopmargin=5pt,
+		innerbottommargin=5pt,
+		leftmargin=0cm,
+		rightmargin=0cm,
+		linewidth=5pt]}
+	{\end{mdframed}}

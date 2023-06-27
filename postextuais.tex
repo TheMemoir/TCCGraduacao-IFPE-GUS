@@ -1,0 +1,535 @@
+%ANEXOS
+\thispagestyle{empty}
+\part*{Anexos} % Se quiser uma página indicativa de ANEXOS antes dos anexos.
+\addcontentsline{toc}{part}{Anexos}
+%Conforme a norma, os anexos devem se organizar em ordem alfabética: A, B, C, D...
+\chapter*{Anexo A -- Um anexo}
+\addcontentsline{toc}{chapter}{Anexo A -- Um anexo}
+
+
+%APÊNDICES
+\thispagestyle{empty}
+\part*{Apêndices} % se quiser uma página indicativa de APÊNDICES antes dos apêndices
+\addcontentsline{toc}{part}{Apêndices}
+%Conforme a norma, os apêndices devem se organizar em ordem alfabética: A, B, C, D...
+\chapter*{Apêndice A -- lettrine}
+\addcontentsline{toc}{chapter}{Apêndice A -- lettrine}
+
+\noindent\textsc{O que faz?}
+
+Desenha uma caixa de texto ao redor da primeira letra da primeira palavra do parágrafo. É um recurso de estilo, apenas.
+
+\lettrine[findent=2pt]{\fbox{\textbf{V}}}{eja essa frase de abertura...} \lipsum[1]
+
+\chapter*{Apêndice B -- verbatim}
+\addcontentsline{toc}{chapter}{Apêndice A -- verbatim}
+
+\noindent\textsc{O que faz?}
+
+Digita qualquer coisa fora da formatação do texto, utilizando fonte monoespaçada e conforme os espaçamentos desejados. Útil para pequenos trechos de código.
+
+\begin{codex}{Códigos verbatim}
+\verb|comando 1|
+    \verb*|comando 2]
+        \begin{verbatim}
+            qualquer outro texto
+        \end{verbatim}
+\begin{mverbt}
+ambiente personalizado
+\item um item de lista
+\end{mverbt}
+\end{codex}
+\begin{multicols}{2}
+\setlength{\columnseprule}{0.2pt}
+O comando da linha 1, gera o seguinte: \verb|comando 1|.
+
+O comando da linha 2, gera o seguinte: \verb*|comando 2].
+
+Os comandos das linhas 3, 4 e 5 geram o seguinte:
+\begin{verbatim}
+   qualquer outro texto
+\end{verbatim}
+
+Os comandos das linhas 6, 7, 8 e 9 geram o seguinte:
+        \begin{mverbt}
+        ambiente personalizado
+        \item um item de lista
+        \end{mverbt}
+\end{multicols}
+\textbf{Observação:} Notar o alinhamento dos dois últimos ambientes. A tabulação na digitação -- \textit{em verbatim} -- importa para o \LaTeX.
+
+
+\chapter*{Apêndice C -- pdfpages}
+\addcontentsline{toc}{chapter}{Apêndice C -- pdfpages}
+
+\noindent\textsc{O que faz?}
+
+Insere uma ou várias páginas .pdf no arquivo gerado pelo \LaTeX. A numeração é feita de modo automático.
+
+Veja a numeração desta página, note a figura inserida do Tex the Lion e a numeração do \textbf{Apêndice D}. 
+
+Observar o código:
+\ \\
+\begin{codex}{Inserção de página pdf - Tex the Lion}
+    \includepdf[noautoscale=false]{img/tex-lion.pdf}
+\end{codex}
+
+\includepdf[noautoscale=false]{img/tex-lion.pdf}
+
+\chapter*{Apêndice D -- multicol}
+\addcontentsline{toc}{chapter}{Apêndice D -- multicol}
+
+\noindent\textsc{O que faz?}
+
+Divide o texto em -- \textit{no máximo} -- 10 colunas. No \textbf{Apêndice C}, tem-se alguns exemplos com o ambiente verbatim.
+
+Observar:
+
+\begin{codex}{Multicolunas com valor 3 e Lorem Ipsum}
+    \begin{multicols}{3}
+        \lipsum[2]
+    \end{multicols}
+\end{codex}
+
+\begin{multicols}{3}
+        \lipsum[2]
+    \end{multicols}
+
+\begin{codex}{Multicolunas com valor 5 e Lorem Ipsum}
+    \begin{multicols}{5}
+        \lipsum[2]
+    \end{multicols}
+\end{codex}
+
+\begin{multicols}{5}
+        \lipsum[2]
+   \end{multicols}
+
+Também é possível incluir uma linha separadora entre as colunas. Ver a seguir.
+
+\begin{codex}{Multicolunas com valor 3 e Lorem Ipsum + Linha}
+    \begin{multicols}{3}
+    \setlength{\columnseprule}{0.2pt}
+    \lipsum[2]
+    \end{multicols}
+\end{codex}
+
+ \begin{multicols}{3}
+    \setlength{\columnseprule}{0.2pt}
+    \lipsum[2]
+ \end{multicols}
+
+\chapter*{Apêndice E -- smartdiagram}
+\addcontentsline{toc}{chapter}{Apêndice E -- smartdiagram}
+
+\noindent\textsc{O que faz?}
+
+Cria diagramas coloridos, em escala de cinza, branco e preto, em formatos diversos a partir de uma lista de itens simples.
+
+\begin{codex}{circular diagram}
+\begin{center}
+\smartdiagram[circular diagram]{\LaTeX,Digitar,Compilar,Produzir PDF}
+\end{center}	
+\end{codex}
+
+\begin{center}
+	\smartdiagram[circular diagram]{\LaTeX,Digitar,Compilar,Produzir PDF}
+\end{center}
+
+\chapter*{Apêndice F -- textcmds}
+\addcontentsline{toc}{chapter}{Apêndice F -- textcmds}
+
+\noindent\textsc{O que faz?}
+Permite incluir aspas duplas e simples, e outros símbolos tipográficos, com menos esforço na digitação.
+
+Por padrão, o \LaTeX\ produz aspas das seguintes formas:
+\begin{enumerate}
+	\item SHIFT + acento grave 2x + SHIFT + acento grave 2x + palavra ou expressão entre aspas + aspas simples 2x.
+            \begin{itemize}
+                \item 'um texto qualquer' entre aspas simples
+            \end{itemize}
+	\item SHIFT + sinal de acento grave + palavra ou expressão + aspas simples.
+            \begin{itemize}
+                \item "um texto qualquer" entre aspas duplas
+            \end{itemize}
+\end{enumerate}
+
+No primeiro exemplo, o 1º sinal das aspas simples não está correto, pois deveria estar voltado para direita.
+
+No segundo exemplo, quando compilado fora do Overleaf, não acrescenta o espaço entre as últimas aspas duplas e a próxima palavra.
+
+Para resolver isso e utilizar \textit{on-line} e \textit{offline} ambas as aspas, use os comandos:
+
+\begin{codex}{Aspas com o pacote textcmds}
+Estas são \qq{aspas duplas}.
+Estas são \q{aspas simples}.
+Estas são \qq{aspas duplas com \q{aspas simples} ao mesmo tempo}
+\end{codex}
+ Produzirão, respectivamente: Estas são \qq{aspas duplas}; Estas são \q{aspas simples} e Estas são \qq{aspas duplas com \q{aspas simples} ao mesmo tempo}.
+
+
+\chapter*{Apêndice G -- xurl}
+\addcontentsline{toc}{chapter}{Apêndice G -- xurl}
+
+\noindent\textsc{O que faz?}
+Permite a quebra de \textit{urls} mesmo quando existem caracteres como \&, \_, \#.
+
+Observe que  caixa de texto, por ser -- também -- um ambiente verbatim, não \qq{quebrará} a url, porém quando digitado em ambiente não verbatim, o endereço é ajustado automaticamente conforme as margens.
+
+\begin{codex}{Exemplo de url longa}
+  \url{https://tex.stackexchange.com/questions/341205/what-is-the-difference-between-tabular-tabular-and-tabularx-environments}
+\end{codex}
+\ \\
+Endereço URL ajustado a seguir:
+
+\url{https://tex.stackexchange.com/questions/341205/what-is-the-difference-between-tabular-tabular-and-tabularx-environments}
+
+\chapter*{Apêndice H -- tabularx e booktabs}
+\addcontentsline{toc}{chapter}{Apêndice H -- tabularx e booktabs}
+
+\noindent\textsc{O que faz?}
+
+Ambos permitem maior controle de personalização nas tabelas. Reproduzo somente uma simples tabela para fins de estudo do código.
+
+\begin{codex}{Tabela com legenda e referência cruzada}
+\begin{table}[h!]
+    \begin{center}
+	\begin{tabularx}{0.8\textwidth} { 
+	| >{\centering\arraybackslash}X 
+	| >{\centering\arraybackslash}X 
+	| >{\centering\arraybackslash}X | }
+	\hline
+	item 1 & item 2 & item 3 \\
+	\hline
+	item 4  & item 5  & item 6  \\
+	\hline
+	\end{tabularx}
+	\caption{Tabela de teste. Abaixo, a ref. cruzada.}
+	\label{table:1}
+	\end{center}
+\end{table}
+\end{codex}
+
+\begin{table}[h!]
+    \begin{center}
+	\begin{tabularx}{0.8\textwidth} { 
+	| >{\centering\arraybackslash}X 
+	| >{\centering\arraybackslash}X 
+	| >{\centering\arraybackslash}X | }
+	\hline
+	item 1 & item 2 & item 3 \\
+	\hline
+	item 4  & item 5  & item 6  \\
+	\hline
+	\end{tabularx}
+	\caption{Tabela de teste. Abaixo, a ref. cruzada.}
+	\label{table:1}
+	\end{center}
+\end{table}
+
+E a ref. cruzada se faz com \verb|\ref{table:1}|, e fica \textit{hiperlinkado} para a Tabela \ref{table:1}.
+
+\chapter*{Apêndice I -- graphix}
+\addcontentsline{toc}{chapter}{Apêndice I -- graphix}
+
+\noindent\textsc{O que faz?}
+
+Insere imagens nos formatos JPG, PNG, PDF ou EPS. Demonstro somente como incluir uma imagem centralizada na página.
+
+\begin{codex}{Código para inserção de imagens}
+\begin{figure}[h!]
+	\begin{center}
+		\includegraphics[scale=.30]{./img/github.png}
+		\caption{Imagem GitHub}
+		\label{fig:github}
+	\end{center}
+\end{figure}
+\end{codex}
+
+\begin{figure}[h!]
+	\begin{center}
+		\includegraphics[scale=.30]{./img/github.png}
+		\caption{Imagem GitHub}
+		\label{fig:github}
+	\end{center}
+\end{figure}
+
+Outras opções, tais como imagens lado a lado, aumento do tamanho, dentro de caixas de texto, etc, são indicadas no pacote.
+
+
+\chapter*{Apêndice I -- Inserção de códigos de programação}
+\addcontentsline{toc}{chapter}{Apêndice I -- Inserção de códigos de programação}
+
+\noindent\textsc{O que faz?}
+
+Insere códigos de programação com opções diferentes conforme o pacote utilizado. 
+
+Neste modelo criei um ambiente chamado \verb|codex| que é o utilizado para todos os exemplos. Sua características são:
+
+\begin{enumerate}
+    \item caixa de texto com moldura do título preta com letras brancas
+    \item texto inicial do título: \textbf{Exemplo} + \textbf{numeração da seção onde se inseriu o ambiente}
+    \item fundo da caixa de texto na cor cinza
+    \item numeração de linhas automáticas para análise/estudo/demonstração do código
+    \item ambiente verbatim na caixa de texto
+\end{enumerate} 
+
+O ambiente \verb|codex| será o primeiro a ser exemplificado.
+
+\textsc{Ambiente codex:} o que está dentro da primeira caixa (3.11) produzirá a segunda caixa (3.12)\footnote{Observe o espaço \textsc{intencional} entre as palavras.}.
+
+\begin{codex}{Exemplo do exemplo}
+\begin{codex}{Título de exemplo do ambiente (obrigatório)}
+    aqui irá o código
+        de      exemplo
+    com     objetivo    de      exemplificar
+\end{codex}
+\end{codex}
+
+\begin{codex}{Título de exemplo do ambiente (obrigatório)}
+    aqui irá o código
+        de      exemplo
+    com     objetivo    de      exemplificar
+\end{codex}
+
+\newpage
+\textsc{Pacote codebox}
+
+\begin{codex}{Exemplo de uso: CODEBOX}
+    \begin{codebox}{CodeBox Title}
+    #include <stdio.h>
+    #include <stdlib.h>
+    int main(void)
+    {
+    printf("Hello World!\n");
+    return 0;
+    }
+    \end{codebox}
+\end{codex}
+
+    \begin{codebox}{CodeBox Title}
+    #include <stdio.h>
+    #include <stdlib.h>
+    int main(void)
+    {
+    printf("Hello World!\n");
+    return 0;
+    }
+    \end{codebox}
+
+\begin{codex}{Exemplo de uso: CODEVIEWER}
+\begin{codeview}{CodeViewer Title}
+#include <stdio.h>
+#include <stdlib.h>
+int main(void)
+{
+printf("Hello World!\n");
+return 0;
+}
+\end{codeview}
+
+\end{codex}
+\begin{codeview}{CodeViewer Title}
+#include <stdio.h>
+#include <stdlib.h>
+int main(void)
+{
+printf("Hello World!\n");
+return 0;
+}
+\end{codeview}
+
+\newpage
+\textsc{Pacote: shdoc} (para usuários Linux)
+
+Há diversas maneiras de utilizar o \verb|shdoc|. Utilizei um exemplo apresentado na pág. 7 do \href{https://linorg.usp.br/CTAN/macros/latex/contrib/shdoc/shdoc.pdf}{manual}.
+
+\begin{enumerate}
+    \item digitei no shell: \verb|cat --help > cat-out.save|
+    \item fiz upload da saída para esse projeto
+    \begin{itemize}
+        \item arq. cat-out.save
+    \end{itemize}
+    \item executei o comando \verb|\shread{cat --help}{cat-out.save}|
+    \item (não\footnote{Antes de demonstrar o pacote pygmentex (caixa acima), o Overleaf compilou o comando sem problemas e exibiu uma imagem da saída do \textit{shell}. Compatibilidade dos pacotes? Questões do Overleaf?}) obtive a imagem abaixo
+\end{enumerate}
+
+O comando \verb|\shread{cat --help}{cat-out.save}| apresentou um erro no Overleaf. Sugiro testar \textit{offline}.
+
+\textsc{Pacote: pygmentex}
+
+\begin{codex}{Pygmentex - pág. 2 do manual}
+    \begin{pygmented}[lang=c]
+    #include <stdio.h>
+    int main(void)
+    {
+    int a, b, c;
+    printf("Enter two numbers to add: ");
+    scanf("%d%d", &a, &b);
+    c = a + b;
+    printf("Sum of entered numbers = %d\n", c);
+    return 0;
+    }
+    \end{pygmented}
+\end{codex}
+
+O ambiente acima apresentou um erro no Overleaf. Sugiro testar \textit{offline}
+
+
+\chapter*{Apêndice J -- Ambientes \LaTeX\ personalizados}
+\addcontentsline{toc}{chapter}{Apêndice J -- Ambientes \LaTeX\ personalizados}
+
+\textsc{Ambiente \textbf{citel}}
+\noindent\textsc{O que faz?}
+
+Formata as citações longas, isto é, com mais de três linhas (de acordo com a ABNT) de modo adequado no \LaTeX. Recuo de 4cm à esquerda da margem, espaçamento simples e fonte de 10pt.
+
+\begin{codex}{Citação com blá blá}
+    \begin{citel}
+    blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá (FONTE, p. 1, 2020)
+\end{citel}
+\end{codex}
+
+\begin{citel}
+    blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá blá (FONTE, p. 1, 2020)
+\end{citel}
+
+\newpage
+\textsc{Ambiente \textbf{codex}}
+\noindent\textsc{O que faz?}
+
+Ver \textbf{Apêndice I} para explicações deste ambiente.
+
+\textsc{Ambiente \textbf{observ}}
+\noindent\textsc{O que faz?}
+
+Produz uma caixa de texto com o título "\textbf{Observação}" no topo para inserir... \textit{observações} que se julguem importantes. A fonte utilizada para o texto dentro da caixa é a mesma do documento.
+
+\begin{codex}{Caixa para observações}
+    \begin{observ}
+        Aqui o texto muito importante para observações.
+    \end{observ}
+\end{codex}
+\ \\
+
+\begin{observ}
+        Aqui o texto muito importante para observações.
+    \end{observ}
+
+
+\chapter*{Apêndice K -- Caixas de texto}
+\addcontentsline{toc}{chapter}{Apêndice K -- Caixas de texto}
+
+\noindent\textsc{O que faz?}
+
+Todos os ambientes a seguir produzem caixas de texto. Em alguns trabalhos acadêmicos o \textit{corpus} é exibido com diferentes formatações e, por isso, muitas vezes precisam ser diferenciados para facilitar a leitura. 
+
+Os ambientes nesse modelo são\footnote{Os ambientes 1 e 2 já foram exemplificados. Ver Apêndices I e J.}:
+
+\begin{enumerate}
+    \item codex
+    \item observ
+    \item mverde
+    \item mvermelha
+    \item bxpreta
+    \item bxlaranja
+    \item bxcinza
+    \item bxazul
+    \item bxvermelha
+    \item \textbf{alertmessage\footnote{Exceção aos listados acima. Trata-se de um comando, não de um ambiente.}}
+\end{enumerate}
+
+Seguindo a ordem numérica acima, seguem-se os exemplos.
+
+\begin{codex}{Ambiente mverde}
+\begin{mverde}{Título da caixa mverde}
+    Note que a indicação do título é obrigatória.
+\end{mverde}
+\end{codex}
+
+\begin{mverde}{Título da caixa mverde}
+    Note que a indicação do título é obrigatória.
+\end{mverde}
+
+\begin{codex}{Ambiente mvermelha}
+\begin{mvermelha}{Título da caixa mvermelha}
+    Note que a indicação do título é obrigatória.
+\end{mvermelha}
+\end{codex}
+
+\begin{mvermelha}{Título da caixa mvermelha}
+    Note que a indicação do título é obrigatória.
+\end{mvermelha}
+
+\textsc{Atenção:} para as caixas/os ambientes \verb|mverde| e \verb|mvermelha| o texto do título é obrigatório.
+
+As caixas seguintes não requerem título. Primeiro apresenta-se o código, em seguida o que é produzido/gerado para o pdf.
+
+\begin{codex}{Ambiente bxpreta}
+\begin{bxpreta}
+Caixa de texto com moldura preta na lateral esquerda.    
+\end{bxpreta} 
+\end{codex}
+.
+\begin{bxpreta}
+Caixa de texto com \textbf{moldura preta} na lateral esquerda.    
+\end{bxpreta} 
+
+\begin{codex}{Ambiente bxlaranja}
+    \begin{bxlaranja}
+        Caixa de texto com \textbf{moldura laranja} na lateral esquerda.  
+    \end{bxlaranja}
+ \end{codex}
+.
+\begin{bxlaranja}
+        Caixa de texto com \textbf{moldura laranja} na lateral esquerda.  
+\end{bxlaranja}
+
+
+\begin{codex}{Ambiente bxcinza}
+    \begin{bxcinza}
+      Caixa de texto com \textbf{moldura cinza} na lateral esquerda. 
+    \end{bxcinza}
+\end{codex}
+.
+\begin{bxcinza}
+      Caixa de texto com \textbf{moldura cinza} na lateral esquerda. 
+\end{bxcinza}
+
+
+\begin{codex}{Ambiente bxazul}
+    \begin{bxazul}
+      Caixa de texto com \textbf{moldura azul} na lateral esquerda. 
+    \end{bxazul}
+\end{codex}
+.
+\begin{bxazul}
+      Caixa de texto com \textbf{moldura azul} na lateral esquerda. 
+\end{bxazul}
+
+\begin{codex}{Ambiente bxvermelha}
+    \begin{bxvermelha}
+      Caixa de texto com \textbf{moldura vermelha} na lateral esquerda. 
+    \end{bxvermelha}
+\end{codex}
+.
+\begin{bxvermelha}
+   Caixa de texto com \textbf{moldura vermelha} na lateral esquerda. 
+\end{bxvermelha}
+
+Os últimos exemplos não são ambientes, mas comandos do pacote \verb|alertmessage| incluído nesse modelo de documento.
+
+\begin{codex}{Todos os comandos para alertmessage}
+    A. \alertinfo{caixa azul, com ícone "i"}
+    B. \alertsuccess{caixa verde com ícone de "confere"}
+    C. \alerterror{caixa vermelha com ícone de "x" ou "erro"}
+    D. \alertwarning{caixa laranja com ícone de"!" ou exclamação}
+\end{codex}
+
+    A. \alertinfo{caixa azul, com ícone "i".}
+
+    B. \alertsuccess{caixa verde com ícone de "confere".}
+    
+    C. \alerterror{caixa vermelha com ícone de "x" ou "erro".}
+    
+    D. \alertwarning{caixa laranja com íncone de"!" ou exclamação.}
