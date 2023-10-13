@@ -2,6 +2,8 @@
 \chapterstyle{section}
 \renewcommand*{\chapnumfont}{\normalfont\Large\bfseries}
 \renewcommand*{\chaptitlefont}{\normalfont\Large\bfseries}
+%Define o cabeçalho para 0pt.
+\setlength\beforechapskip{-\baselineskip}
 %Algarismos arábicos nas páginas
 \pagenumbering{arabic}
 %Estilo de página
@@ -20,16 +22,18 @@
 %Define o espaçamento entre linhas (exceto para citações longas).
 \OnehalfSpacing
 %========================================================
+%INÍCIO
 %PACOTES ESPECÍFICOS POR ÁREA DE ESTUDO/PESQUISA
-%INÍCIO COMPUTAÇÃO
-%Caixas de texto para inserção de códigos. Suporta diferentes linguagens.
-\usepackage{codebox}
-%Replicar comandos e saídas de um shell.
-\usepackage{shdoc}
-\shautoformat{true}
-%Destacar sintaxe de código em caixa de texto simples.
-\usepackage{pygmentex}
-%FIM COMPUTAÇÃO
+
+%Inclua aqui outros pacotes necessários por área de estudo.
+%Por exemplo: nenhum pacote para matemática foi includio 
+%no modelo. Se for da área de exatas e for usar muitas equações,
+%sugiro a inclusão dos pacotes para essa finalidade.
+
+
+%PACOTES ESPECÍFICOS POR ÁREA DE ESTUDO/PESQUISA
+%fim
+
 %========================================================
 %Geometria do tipo de papel (A4).
 \usepackage[a4paper,%
@@ -58,9 +62,9 @@
 %Esconder caixa vermelha das hiperligações no documento.
 %Ativar links clicáveis no pdf, com cor azul.
 \usepackage[breaklinks,%
-		hidelinks,%
-		colorlinks=true,%
-		allcolors=blue]{hyperref}
+			hidelinks,%
+			colorlinks=true,%
+			allcolors=blue]{hyperref}
 %Digitar URL completas e clicáveis. 
 %Caso queira links com a cor igual ao texto (preto), mudar acima para 'colorlinks=false'.
 \usepackage{xurl}
@@ -120,13 +124,13 @@
 
 %AMBIENTES PERSONALIZADOS
 %Verbatim modificaddo para incluir códigos em listas.
-%\newenvironment{mverbt}
-%{\verbatim}%
-%{\endverbatim}
+\newenvironment{mverbt}
+{\verbatim}%
+{\endverbatim}
 
 %Para citações longas.
 \newenvironment{citel}
-{\SingleSpacing\small\list{}{\rightmargin=0cm \leftmargin=4cm}%
+{\SingleSpacing\footnotesize\list{}{\rightmargin=0cm \leftmargin=4cm}%
 	\item\relax}%
 {\endlist}
 
