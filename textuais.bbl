@@ -1,0 +1,28 @@
+\providecommand{\abntreprintinfo}[1]{%
+ \citeonline{#1}}
+\setlength{\labelsep}{0pt}\begin{thebibliography}{}
+\providecommand{\abntrefinfo}[3]{}
+\providecommand{\abntbstabout}[1]{}
+\abntbstabout{v-1.9.7 }
+
+\bibitem[Asgard 2017]{Thor2017}
+\abntrefinfo{Asgard}{ASGARD}{2017}
+{ASGARD, T. de.
+\textbf{O meu martelo e Eu: uma história de poder}.
+514~f. Tese (Doutorado em Mitologia Nórdica e Instrumentos de Guerra) ---
+  Universidade de Asgard, Outro Planeta, Jun. 2017.}
+
+\bibitem[Flinstone 1900]{Flintstones1900}
+\abntrefinfo{Flinstone}{FLINSTONE}{1900}
+{FLINSTONE, F. (Org.). \textbf{A vida na Idade da Pedra}. Bedrock: Pedra
+  Lascada, 1900.}
+
+\bibitem[Smurf 1980]{Smurf1980}
+\abntrefinfo{Smurf}{SMURF}{1980}
+{SMURF, P. Como preparar trufas azuis.
+\textbf{The Smurfs Newsletters}, v.~1, n.~1, p. 1--10, Jan. 1980.
+ISSN 123-456-789.
+Dispon{\'\i}vel em: \url{http://www.thesmurfs.com.com}. Acesso em: 10 jun.
+  1981.}
+
+\end{thebibliography}

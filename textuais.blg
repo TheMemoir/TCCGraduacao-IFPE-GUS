@@ -1,0 +1,80 @@
+This is BibTeX, Version 0.99d (TeX Live 2021/TeX Live for SUSE Linux)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: textuais.aux
+The style file: abntex2-alf.bst
+Illegal, another \bibstyle command---line 114 of file textuais.aux
+ : \bibstyle
+ :          {abntex2-alf}
+I'm skipping whatever remains of this command
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
+Database file #1: abntex2-options.bib
+Database file #2: referencias.bib
+")" immediately follows an entry type---line 78 of file referencias.bib
+ : %Leis (a entrada é feita como @article
+ :                                        )
+I'm skipping whatever remains of this entry
+Warning--entry type for "Flintstones1900" isn't style-file defined
+--line 131 of file referencias.bib
+")" immediately follows an entry type---line 178 of file referencias.bib
+ : %Leis (a entrada é feita como @article
+ :                                        )
+I'm skipping whatever remains of this entry
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
+Reallocated global_strs (elt_size=200001) to 20 items from 10.
+Reallocated glb_str_end (elt_size=4) to 20 items from 10.
++---------------------------------------------------------+
+| Estilo bibliográfico abntex2-alf.bst versão v-1.9.7           |
+| Em caso de dúvidas ou problemas com este estilo procure |
+| http://www.abntex.net.br/                               |
++---------------------------------------------------------+
+You've used 12 entries,
+            6714 wiz_defined-function locations,
+            1238 strings with 9940 characters,
+and the built_in function-call counts, 5106 in all, are:
+= -- 501
+> -- 47
+< -- 34
++ -- 99
+- -- 16
+* -- 262
+:= -- 661
+add.period$ -- 13
+call.type$ -- 13
+change.case$ -- 46
+chr.to.int$ -- 11
+cite$ -- 3
+duplicate$ -- 227
+empty$ -- 541
+format.name$ -- 69
+if$ -- 1295
+int.to.chr$ -- 8
+int.to.str$ -- 1
+missing$ -- 140
+newline$ -- 25
+num.names$ -- 15
+pop$ -- 104
+preamble$ -- 1
+purify$ -- 36
+quote$ -- 0
+skip$ -- 609
+stack$ -- 1
+substring$ -- 162
+swap$ -- 78
+text.length$ -- 4
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 4
+warning$ -- 0
+while$ -- 21
+width$ -- 0
+write$ -- 59
+(There were 3 error messages)
