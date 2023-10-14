@@ -473,15 +473,15 @@ Outras opções, tais como imagens lado a lado, aumentar ou diminuir o tamanho, 
 
 \subsection{codex}{Inserção de códigos de programação}
 
-Depende do pacote \verb|tcolorbox|; porém, trata-se de um ambiente personalizado.
+Depende do pacote \verb|tcolorbox|, que já vem ativado nesse modelo; porém, trata-se de um ambiente personalizado.
 
 \textsc{O que faz?}: Permite a inserção de códigos de programação para demonstração.
 
-Para este modelo de documento, criei um ambiente chamado \verb|codex|. Esse ambiente é utilizado para todos os exemplos em que se demonstra o código \LaTeX. Suas características são:
+Para este modelo de documento, criei um ambiente chamado \verb|codex| (CODigo de EXemplo). Esse ambiente é utilizado para todos os exemplos em que se demonstra o código \LaTeX. Suas características são:
 
 \begin{enumerate}
-	\item caixa de texto com moldura do título preta com letras brancas
-	\item texto inicial do título: \textbf{Exemplo} + \textbf{numeração da seção onde se inseriu o ambiente}
+	\item caixa de texto com moldura do título na cor cinza com letras brancas
+	\item texto inicial do título: \textbf{Exemplo} + \textbf{numeração automática do exemplo conforme o capítulo ou seção onde se inseriu o ambiente}
 	\item fundo da caixa de texto na cor cinza
 	\item numeração de linhas automáticas para análise/estudo/demonstração do código
 	\item ambiente verbatim na caixa de texto
@@ -541,7 +541,52 @@ A seguir, um exemplo de código em Java\footnote{Retirado de \url{https://java.h
 
 Caso não fosse utilizado o ambiente \verb|codex| e o código fosse digitado diretamente no editor, seu resultado seria \underline{impossível} em \LaTeX\ já que as chaves compõem a sintaxe do \LaTeX.
 
-\fbox{Importante:}
+\fbox{Importante I:}
+
+Caso você opte por considerar os exemplos de códigos como figuras, será necessário incluir o ambiente \verb|codex| dentro do ambiente \verb|figure| e adicionar, após \verb|\end{codex}| as seguintes linhas:
+
+\begin{itemize}
+	\item \verb|\caption|\{Nome do exemplo dado no título.\}
+	\item \verb|\label{id:1}| - identificação da imagem para referência cruzada
+\end{itemize}
+
+Veja a seguir:
+
+\begin{verbatim}
+	\begin{figure}[h!]
+	\begin{codex}{Ambiente codex em ambiente figure}
+	arc=0mm,
+	listing only,
+	colback=black!5!white,
+	colframe=black!85!white,
+	fonttitle=\bfseries,
+	title=Exemplo
+	\end{codex}
+	\caption{Ambiente codex em ambiente figure}
+	\label{cod:1} % aqui é a id, seguida de : e a numeração
+	\end{figure}
+\end{verbatim}
+
+\textsc{Resultado:}
+
+\begin{figure}[h!]
+\begin{codex}{Ambiente \{codex\} em ambiente \{figure\}}
+arc=0mm,
+listing only,
+colback=black!5!white,
+colframe=black!85!white,
+fonttitle=\bfseries,
+title=Exemplo
+\end{codex}
+\caption{Ambiente \{codex\} em ambiente \{figure\}}
+\label{cod:1}
+\end{figure}
+
+Observe que a legenda já é inserida automaticamente e, também, esse exemplo já aparece na lista de figuras, no início do documento.
+
+Caso se deseje referenciar essa figura ao longo do documento como referência cruzada, basta digitar \verb|\ref{cod:1}|, como aqui: \textit{O exemplo da figura \ref{cod:1} é do ambiente \{codex\} dentro do ambiente \{figure\}}.
+
+\fbox{Importante II:}
 
 Sempre alinhe o código na margem esquerda pois, caso o alinhamento fique com muitas tabulações, o código parecerá desorganizado (como o do Java acima).
 
