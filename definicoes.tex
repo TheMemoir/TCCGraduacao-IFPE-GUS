@@ -26,21 +26,39 @@
 %PACOTES ESPECÍFICOS POR ÁREA DE ESTUDO/PESQUISA
 
 %Inclua aqui outros pacotes necessários por área de estudo.
-%Por exemplo: nenhum pacote para matemática foi includio 
-%no modelo. Se for da área de exatas e for usar muitas equações,
-%sugiro a inclusão dos pacotes para essa finalidade.
+
+%Incluí abaixo pacotes báscios para matemática. 
+%Sugiro a inclusão de pacotes específicos para
+%adequação aos objetivos do trabalho.
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+
+%OUTROS PACOTES ESPECÍFICOS POR ÁREA DE ESTUDO/PESQUISA
 
 
-%PACOTES ESPECÍFICOS POR ÁREA DE ESTUDO/PESQUISA
-%fim
+
+
+%FIM
 
 %========================================================
+
+%======ATENÇÃO ATENÇÃO ATENÇÃO==========
+%Fonte padrão do documento.
+\usepackage{times}
+%FONTE PADRÃO DO DOCUMENTO CONFORME
+%TEMPLATE HORRÍVEL DO IFPE
+%Comente \usepackage{times} acima e descomente as duas linhas abaixo
+%\usepackage{helvet}
+%\renewcommand{\familydefault}{\sfdefault}
+%FIM DO %======ATENÇÃO ATENÇÃO ATENÇÃO=====
+
 %Geometria do tipo de papel (A4).
 \usepackage[a4paper,%
-		left=3cm,%
-		right=2cm,% 
-		top=3cm,% 
-		bottom=2cm]{geometry}
+			left=3cm,%
+			right=2cm,% 
+			top=3cm,% 
+			bottom=2cm]{geometry}
 %Medir margens do pacote Geometry.
 \usepackage{calc}
 %Fonte 10pt para legendas de figuras e tabelas
@@ -65,8 +83,9 @@
 			hidelinks,%
 			colorlinks=true,%
 			allcolors=blue]{hyperref}
-%Digitar URL completas e clicáveis. 
 %Caso queira links com a cor igual ao texto (preto), mudar acima para 'colorlinks=false'.
+
+%Digitar URL completas e clicáveis. 
 \usepackage{xurl}
 %Para escrever códigos ou trechos de códigos. Ver ambiente CODEX.
 \usepackage{verbatim}
@@ -94,8 +113,6 @@
 \usepackage{indentfirst}
 %Digitar aspas com \qq e \q.
 \usepackage{textcmds}
-%Fonte padrão do documento.
-\usepackage{times}
 %Facilidades para manipualar formatação de FONTES (riscado, espaçamento entre carcateres...).
 \usepackage{soul}
 %Destaca a primeira letra do parágrafo. Fonte maior e em caixa de texto.
