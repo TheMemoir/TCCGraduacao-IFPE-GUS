@@ -53,6 +53,8 @@ O arquivo \verb|pretextuais.tex| contém todos os elementos pré-textuais obriga
 
 O arquivo \verb|textuais.tex| é o arquivo em que o trabalho deve ser digitado. Deve conter todas as seções do trabalho (apresentação, seção 1, seção 2, considerações finais e referências\footnote{Ver explicação mais adiante.}).
 
+Nesse arquivo há, também, uma seção chamada \textbf{Playground} em que é possível praticar os comandos e os ambientes dos pacotes utilizados. Além disso, na seção \textbf{Considerações Finais} indica-se a versão do \TeX Live utilizada para a criação desse modelo.
+
 O arquivo \verb|postextuais.tex| contém somente os elementos pós-textuais opcionais \textbf{Anexos} e \textbf{Apêndices}. As referências não estão incluídas nesse arquivo. Caso não se utilizem anexos ou apêndices, deve-se comentar a linha \verb|\input{postextuais}| ao final \underline{deste} arquivo (textuais.tex).
 
 Observe que as \textbf{referências} são elementos pós-textuais. No entanto, o \LaTeX, especificamente o pacote \textit{Memoir}, no qual esse modelo se baseia, divide as partes do documento em \verb|\frontmatter| (está no pretextuais.tex), \verb|\maintmatter| (está no início desse arquivo) e \verb|\backmatter| (está no final deste arquivo). Como as referências, que são obrigatórias, antecedem anexos e/ou apêndices, para facilitar a organização, incluí a indicação de onde se localiza o arquivo com as referências aqui, no \verb|textuais.tex| porque, se inexistirem anexos e apêndices, basta comentar a linha respectiva (ver instrução acima) sem prejuízo às referências.
@@ -64,16 +66,58 @@ O arquivo \verb|fichacatalografica.pdf| serve apenas para a compilação, durant
 A pasta \verb|img| é onde devem ser colocadas todas as imagens (caso as utilize) do trabalho. No momento da inclusão da imagem no arquivo, o caminho da imagem deve ser relativo, por exemplo\footnote{Ver instruções específicas na seção Imagens.}: comando-para-imagem\{./img/nome-da-imagem.png\}.Deve-se sempre  indicar a extensão da imagem: png, jpg, jpeg, etc.
 
 Cada uma das seções inicia-se com uma pergunta: \textbf{Qual o pacote?}, cuja resposta indica o endereço URL do pacote no CTAN (Comprenhensive \TeX Archive Network), um repositório de todos os pacotes do \LaTeX, bem como a documentação de cada um. Em seguida, outra pergunta: \textbf{O que faz?}, indicando o que aquele pacote, incluído nesse modelo, faz em termos de formatação. Depois, temos uma caixa com o código e, em seguida, o resultado daquele código.
+
+\section{Algumas questões sobre o \LaTeX}
+
+O \LaTeX\ é um sistema de preparação de documento. Sua sintaxe se baseia em \qq{\textit{tags}} e, do mesmo modo que linguagens de programação, existem algumas palavras reservadas. Não só isso, existem caracteres \qq{reservados} também.
+
+A barra invertida \verb| \ | indica o início de um comando ou de um ambiente.
+
+As chaves \verb| { } | podem indicar o nome do comando ou do ambiente, ou ainda o que deve estar em um ou outro.
+
+Um comando é feito com a barra invertida e o seu nome, por exemplo, para indicar negrito, o comando é \verb|\textbf{texto em negrito}| que resultará em: \textbf{texto em negrito}.
+
+Um ambiente é feito com a seguintes sintaxe: \verb|\begin{ambiente}| e \verb|\end{ambiente}|. Tudo que vem entre o \qq{begin} e o \qq{end} é o que se deseja obter em termos de formatação. 
+
+Por exemplo, nesse modelo existe o ambiente \verb|citel|, que serve para inserir citações longas conforme ABNT NBR 10520. Sua sintaxe é:
+\ \\
+
+\begin{codex}{Exemplo de ambiente}
+\begin{citel}
+Aqui você insere a citação longa, isto é, com mais de três linhas.
+Para esse exemplo, incluí também o Lorem Ipsum. \lipsum[1]
+\end{citel}
+\end{codex}
+\ \\
+
+O ambiente acima resulta em:
+
+\begin{citel}{Exemplo de ambiente}
+	Aqui você insere a citação longa, isto é, com mais de três linhas. Para esse exemplo, incluí também o Lorem Ipsum. \lipsum[1]
+\end{citel}
+
+A sintaxe da maioria dos comandos e ambientes personalizados para esse modelo está descrita nas próximas seções.
+
+Para quem deseja aprender sozinho sobre o \LaTeX, sugiro consultar os documentos:
+
+\begin{enumerate}
+	\item \url{https://www.ime.usp.br/~reverbel/mac212-02/material/lshortBR.pdf}
+	\item \url{https://fdocument.org/document/a-nao-tao-pequena-introducao-ao-latex2e-ou-latex2e-em-118-minutos.html?page=7}
+\end{enumerate}
+
+São boas introduções para manipulação básica do \LaTeX.
 %=======================================================
 \chapter{Lettrine}
 
 \textsc{Qual o pacote?}: \textbf{lettrine} (\url{https://www.ctan.org/pkg/lettrine})
 
 \textsc{O que faz?}: Desenha uma caixa de texto ao redor da primeira letra da primeira palavra do parágrafo. É um recurso de estilo, apenas.
+\ \\
 
 \begin{codex}{Código pacote lettrine}
 \lettrine[findent=2pt]{\fbox{\textbf{V}}}{eja essa frase de abertura...} \lipsum[1]
 \end{codex}
+\ \\
 
 \textsc{Resultado}:
 
@@ -85,6 +129,7 @@ Cada uma das seções inicia-se com uma pergunta: \textbf{Qual o pacote?}, cuja 
 \textsc{Qual o pacote?}: \textbf{verbatim}\footnote{Por padrão, já incluído no \LaTeX.} (Acesso: \url{https://www.ctan.org/pkg/verbatim})
 
 \textsc{O que faz?}: Digita qualquer coisa fora da formatação do texto, utilizando fonte monoespaçada e conforme os espaçamentos desejados. Útil para pequenos trechos de código.
+\ \\
 
 \begin{codex}{Códigos ambiente verbatim}
 	\verb|comando 1|
@@ -93,7 +138,7 @@ Cada uma das seções inicia-se com uma pergunta: \textbf{Qual o pacote?}, cuja 
 		qualquer outro texto
 	\end{verbatim}
 \end{codex}
-
+\ \\
 \textsc{Resultado}:
 
 \verb|comando 1|
@@ -105,7 +150,7 @@ Cada uma das seções inicia-se com uma pergunta: \textbf{Qual o pacote?}, cuja 
 	e outro texto qualquer
 \end{verbatim}
 
-\textbf{Importante:} O ambiente verbatim não respeitas as margens. Isto quer dizer que se tudo for digitado em uma única linha, sem quebra manual, ele irá mostrar o texto quebrado. Observe:
+\textbf{Importante:} O ambiente verbatim não respeitas as margens/quebra de linhas. Isto quer dizer que se tudo for digitado em uma única linha, sem quebra manual, ele irá mostrar o texto quebrado. Observe:
 
 \begin{verbatim}
 	Stricto sensu é uma expressão latina que significa, literalmente, "em sentido específico", por oposição ao "sentido amplo" de um termo. No âmbito do ensino, se refere ao nível de pós-graduação que titula o estudante como mestre ou doutor em determinado campo do conhecimento. Denota, neste caso, um grau mais elevado do que a pesquisa lato sensu.
@@ -114,7 +159,7 @@ Cada uma das seções inicia-se com uma pergunta: \textbf{Qual o pacote?}, cuja 
 O código acima é:
 
 \begin{codex}{Código verbatim sem quebra de linha}
-	Stricto sensu é uma expressão latina que significa, literalmente, "em sentido específico", por oposição ao "sentido amplo" de um termo. No âmbito do ensino, se refere ao nível de pós-graduação que titula o estudante como mestre ou doutor em determinado campo do conhecimento. Denota, neste caso, um grau mais elevado do que a pesquisa lato sensu.
+Stricto sensu é uma expressão latina que significa, literalmente, "em sentido específico", por oposição ao "sentido amplo" de um termo. No âmbito do ensino, se refere ao nível de pós-graduação que titula o estudante como mestre ou doutor em determinado campo do conhecimento. Denota, neste caso, um grau mais elevado do que a pesquisa lato sensu.
 \end{codex}
 %=======================================================
 \chapter{Inserir páginas em .pdf}
@@ -127,10 +172,13 @@ Veja a numeração desta página, note a figura inserida do Tex the Lion e a num
 \ \\
 
 \begin{codex}{Código inserção de página pdf. Imagen: Tex the Lion}
-	\includepdf[noautoscale=false]{img/tex-lion.pdf}
+\includepdf[noautoscale=false]{img/tex-lion.pdf}
 \end{codex}
+\ \\
 
 \textsc{Resultado}:
+
+Na próxima página.
 
 \includepdf[noautoscale=false]{img/tex-lion.pdf}
 %=======================================================
@@ -139,39 +187,45 @@ Veja a numeração desta página, note a figura inserida do Tex the Lion e a num
 \textsc{Qual o pacote:} \textbf{multicol} (Acesso: \url{https://www.ctan.org/pkg/multicol})
 
 \textsc{O que faz?}: Divide o texto em colunas (Máx. de 10 colunas.)
+\ \\
 
 \begin{codex}{Código multicolunas com valor 3 e Lorem Ipsum}
-	\begin{multicols}{3}
-		\lipsum[2]
-	\end{multicols}
+\begin{multicols}{3}
+\lipsum[2]
+\end{multicols}
 \end{codex}
+\ \\
 
 \textsc{Resultado}:
+\ \\
 
 \begin{multicols}{3}
 	\lipsum[2]
 \end{multicols}
 
 \begin{codex}{Código multicolunas com valor 5 e Lorem Ipsum}
-	\begin{multicols}{5}
-		\lipsum[2]
-	\end{multicols}
+\begin{multicols}{5}
+\lipsum[2]
+\end{multicols}
 \end{codex}
+\ \\
 
 \textsc{Resultado}:
 
 \begin{multicols}{5}
 	\lipsum[2]
 \end{multicols}
-
+\ \\
 Também é possível incluir uma linha separadora entre as colunas. Ver a seguir.
+\ \\
 
 \begin{codex}{Código multicolunas com valor 3 e Lorem Ipsum + Linha}
-	\begin{multicols}{3}
-		\setlength{\columnseprule}{0.2pt}
-		\lipsum[2]
-	\end{multicols}
+\begin{multicols}{3}
+\setlength{\columnseprule}{0.2pt}
+\lipsum[2]
+\end{multicols}
 \end{codex}
+\ \\
 
 \textsc{Resultado}:
 
@@ -187,12 +241,14 @@ Veja também \url{https://www.alessandroduarte.com.br/?page_id=602} para um tuto
 \textsc{Pacote:} \textbf{smartdiagram} (Acesso: \url{https://www.ctan.org/pkg/smartdiagram})
 
 \textsc{O que faz?}: Cria diagramas coloridos, em escala de cinza, branco e preto, em formatos diversos a partir de uma lista de itens simples.
+\ \\
 
 \begin{codex}{Código para diagrama circular}
-	\begin{center}
-		\smartdiagram[circular diagram]{\LaTeX,Digitar,Compilar,Produzir PDF}
-	\end{center}	
+\begin{center}
+\smartdiagram[circular diagram]{\LaTeX,Digitar,Compilar,Produzir PDF}
+\end{center}	
 \end{codex}
+\ \\
 
 \textsc{Resultado}:
 
@@ -202,12 +258,13 @@ Veja também \url{https://www.alessandroduarte.com.br/?page_id=602} para um tuto
 
 \begin{codex}{Código para diagrama descritivo}
 \smartdiagram[descriptive diagram]{
-	{Set up,The set up operation consist of..},
-	{Run, {After having set up the program, you must run..}},
-	{Analyse, You must check what did with analytical tools like..},
-	{Modify, {After the analysis, you can still modify or add..}},
+{Set up,The set up operation consist of..},
+{Run, {After having set up the program, you must run..}},
+{Analyse, You must check what did with analytical tools like..},
+{Modify, {After the analysis, you can still modify or add..}},
 }
 \end{codex}
+\ \\
 
 \textsc{Resultado:}
 
@@ -246,18 +303,20 @@ No primeiro exemplo, o 1º sinal das aspas simples não está correto, pois deve
 No segundo exemplo, não acrescenta o espaço entre as últimas aspas duplas e a próxima palavra.
 
 Para resolver isso e utilizar ambas as aspas corretamente, use os comandos:
+\ \\
 
 \begin{codex}{Códigos para aspas com o pacote textcmds}
-	Estas são \qq{aspas duplas}.
-	Estas são \q{aspas simples}.
-	Estas são \qq{aspas duplas com \q{aspas simples} ao mesmo tempo}
+Estas são \qq{aspas duplas}.
+Estas são \q{aspas simples}.
+Estas são \qq{aspas duplas com \q{aspas simples} ao mesmo tempo}
 \end{codex}
+\ \\
 
 \textsc{Resultado}:
 
 Estas são \qq{aspas duplas}; Estas são \q{aspas simples} e estas são \qq{aspas duplas com \q{aspas simples} ao mesmo tempo}.
 
-Esse pacote foi incluído porque em modo \textit{offline} o \LaTeX\ habitualmente não reconhece os espaços necessários entre as aspas.
+
 %=======================================================
 \chapter{Hiperlinks com quebra de endereço por linha}
 
@@ -266,6 +325,7 @@ Esse pacote foi incluído porque em modo \textit{offline} o \LaTeX\ habitualment
 \textsc{O que faz?}: Permite a quebra de \textit{urls} mesmo quando, no endereço, existem caracteres como \&, \_, \#.
 
 Observe que, por ser -- também -- um ambiente verbatim, não \qq{quebrará} a url, porém quando digitado em ambiente não verbatim, o endereço é ajustado automaticamente conforme as margens.
+\ \\
 
 \begin{codex}{Código de exemplo de url longa}
 \url{https://tex.stackexchange.com/questions/341205/what-is-the-difference-between-tabular-tabular-and-tabularx-environments}
@@ -288,6 +348,7 @@ Relevante observar que tabelas, \textit{stricto sensu}, são elementos destinado
 Caso se apresentem dados não numéricos e linhas laterais, deve-se identificar esse elementos como \textsc{quadro}.
 
 Veja a seguir um exemplo de como normalmente se faz no Brasil\footnote{Obviamente que fica a critério da pessoa que elabora o trabalho optar pela forma abaixo ou não.}.
+\ \\
 
 \begin{codex}{Código para tabela com legenda e referência cruzada}
 \begin{table}[h!]
@@ -307,6 +368,7 @@ Veja a seguir um exemplo de como normalmente se faz no Brasil\footnote{Obviament
 	\end{center}
 	\end{table}
 \end{codex}
+\ \\
 
 \textsc{Resultado:}
 
@@ -332,9 +394,10 @@ E para referenciar a tabela/quadro, usamos o comando \verb|\ref{table:1}|, como 
 Ex.: \textit{Como podemos observar na tabela \ref{table:1}, blá blá...}
 
 No entanto, a correta aplicação e formatação de uma tabela deve ser conforme o código a seguir.
+\ \\
 
 \begin{codex}{Código de exemplo de tabela}
-	\begin{table}[h!]
+\begin{table}[h!]
 	\begin{center}
 	\begin{tabular}{c|c|c|c}
 	\hline
@@ -350,8 +413,9 @@ No entanto, a correta aplicação e formatação de uma tabela deve ser conforme
 	\caption{Tabela de teste sem linhas laterais. Abaixo, a ref. cruzada.}
 	\label{table:2}
 	\end{center}
-	\end{table}
+\end{table}
 \end{codex}
+\ \\
 
 \textsc{Resultado:}
 
@@ -379,6 +443,8 @@ Ex.: \textit{Como podemos observar na tabela \ref{table:2}, blá blá...}
 
 A lista de tabela, quando identificadas pelos dois comandos \verb|\caption{...}| e \verb|\label{...}| já são inseridas automaticamente na seção \textbf{Lista de tabelas}.
 
+Uma observação importante é que a numeração da tabela é feita conforme a seção ou subseção, inicialmente, seguida do número (se primeira tabela, se segunda, etc) daquela seção. No exemplo acima temos tabela \ref{table:2} porque ela é a segunda tabela da seção 9.
+
 Tabelas em \LaTeX\ são incrivelmente \qq{complicadas} de fazer. Sugiro abaixo uma breve lista com geradores de códigos de tabela em \LaTeX\ \textit{on-line}.
 
 \begin{enumerate}
@@ -388,7 +454,7 @@ Tabelas em \LaTeX\ são incrivelmente \qq{complicadas} de fazer. Sugiro abaixo u
 \end{enumerate}
 
 Por fim, ao final do arquivo \verb|pretextuais.tex|, há os seguintes códigos:
-
+\ \\
 \begin{codex}{Códigos para tabelas e figuras}
 	\newpage\tableofcontents*
 	\thispagestyle{empty}
@@ -397,8 +463,9 @@ Por fim, ao final do arquivo \verb|pretextuais.tex|, há os seguintes códigos:
 	\newpage\listoftables*
 	\thispagestyle{empty}
 \end{codex}
-
+\ \\
 Caso não existam nem figuras nem tabelas no trabalho, basta excluir as linhas: 
+
 \begin{verbatim} 
 	\newpage\listoffigures*
 	\thispagestyle{empty}
@@ -412,6 +479,7 @@ Caso não existam nem figuras nem tabelas no trabalho, basta excluir as linhas:
 \textsc{Qual o pacote?} \textbf{graphicx} (Acesso: \url{https://www.ctan.org/pkg/graphicx})
 
 \textsc{O que faz?}: Insere imagens nos formatos JPG, PNG, PDF ou EPS. Demonstro somente como incluir uma imagem centralizada na página.
+\ \\
 
 \begin{codex}{Código para inserção de imagens}
 \begin{figure}[h!]
@@ -435,6 +503,7 @@ Caso não existam nem figuras nem tabelas no trabalho, basta excluir as linhas:
 \end{figure}
 
 Uma demonstração combinada com o uso do pacote \textbf{multicol} dispondo as figuras lado a lado.
+\ \\
 
 \begin{codex}{Código para figuras lado a lado com multicol}
 \begin{multicols}{2}
@@ -461,14 +530,17 @@ Outras opções, tais como imagens lado a lado, aumentar ou diminuir o tamanho, 
 \subsection{citel}
 
 \textsc{O que faz?}: Formata citações longas (com mais de três linhas) de acordo com a ABNT NBR 10520\footnote{A norma foi atualizada em 2023, informando que o recuo de citações longas não precisa ser \textsc{exatamente} 4cm da margem esquerda. No entanto, preferi manter a orientação anterior da norma que definia o recuo com essas medidas.}. Tem-se um recuo de 4cm da margem, tamanho da fonte 10pt e espaçamento simples entre linhas.
+\ \\
 
 \begin{codex}{Código para citações longas}
 	\begin{citel}
 		Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam at sapien erat. Donec nunc sem, sollicitudin id accumsan vitae, pharetra at eros. Etiam tellus erat, tempus feugiat cursus quis, vestibulum sit amet lacus. Praesent sed erat non erat accumsan aliquam. Duis volutpat tellus in erat venenatis vulputate. Aliquam at mauris vitae risus congue maximus sollicitudin nec velit. Duis rhoncus, urna in scelerisque mollis, libero augue viverra arcu, vel varius risus mi id felis. Mauris quis massa ac est finibus sodales at sed tortor. Aenean vel est nec purus finibus imperdiet.
 	\end{citel}
 \end{codex}
+\ \\
 
 \textsc{Resultado:}
+\ \\
 
 \begin{citel}
 	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam at sapien erat. Donec nunc sem, sollicitudin id accumsan vitae, pharetra at eros. Etiam tellus erat, tempus feugiat cursus quis, vestibulum sit amet lacus. Praesent sed erat non erat accumsan aliquam. Duis volutpat tellus in erat venenatis vulputate. Aliquam at mauris vitae risus congue maximus sollicitudin nec velit. Duis rhoncus, urna in scelerisque mollis, libero augue viverra arcu, vel varius risus mi id felis. Mauris quis massa ac est finibus sodales at sed tortor. Aenean vel est nec purus finibus imperdiet.
@@ -499,10 +571,12 @@ Deve ser iniciado como abaixo:
 \end{verbatim}
 
 \textsc{Resultado:}
+\ \\
 
 \begin{codex}{Digite aqui a identificação do exemplo. Obrigatório}
 	insira aqui o que desejar
 \end{codex}
+\ \\
 
 A seguir, um exemplo de código em Java\footnote{Retirado de \url{https://java.hotexamples.com/pt/examples/-/Average/-/java-average-class-examples.html}.}.
 
@@ -595,23 +669,27 @@ Sempre alinhe o código na margem esquerda pois, caso o alinhamento fique com mu
 
 \subsection{Caixas de Texto}
 
-Além do pacote \verb|tcolorbox| e doo ambiente \verb|codex|, explicado anteriormente, há diversos \textbf{ambientes} possíveis nesse modelo para criar caixas de texto. São eles:
+Além do pacote \verb|tcolorbox| e do ambiente \verb|codex|, explicado anteriormente, há diversos \textbf{ambientes} possíveis nesse modelo para criar caixas de texto. São eles:
 
 \subsubsection{observ}
 
 \textsc{O que faz?} Produz uma caixa de texto com o título \qq{\textbf{Observação}} no topo para inserir... \textit{observações} que se julguem importantes. A fonte utilizada para o texto dentro da caixa é a mesma do documento.
+\ \\
 
 \begin{codex}{Código para caixa para observações}
 	\begin{observ}
 	Aqui o texto muito importante para observações.
 	\end{observ}
 \end{codex}
+\ \\
 
 \textsc{Resultado:}
+\ \\
+
 \begin{observ}
 	Aqui o texto muito importante para observações.
 \end{observ}
-
+\ \\
 \fbox{Observação:} 
 
 Todos os ambientes a seguir produzem caixas de texto. Em alguns trabalhos acadêmicos o \textit{corpus} precisa ser exibido com diferentes formatações e, por isso, muitas devem ser diferenciados para facilitar a leitura. 
@@ -619,12 +697,14 @@ Todos os ambientes a seguir produzem caixas de texto. Em alguns trabalhos acadê
 \subsubsection{mverde e mvermelha}
 
 \textsc{O que fazem?} Produzem caixas de texto \textsc{com título} nas cores verde e vermelha, respectivamente:
+\ \\
 
 \begin{codex}{Código para o ambiente mverde}
 	\begin{mverde}{Título da caixa mverde}
 	Note que a indicação do título é obrigatória.
 	\end{mverde}
 \end{codex}
+\ \\
 
 \textsc{Resultado:}
 \begin{mverde}{Título da caixa mverde}
@@ -637,6 +717,7 @@ Todos os ambientes a seguir produzem caixas de texto. Em alguns trabalhos acadê
 	Note que a indicação do título é obrigatória.
 	\end{mvermelha}
 \end{codex}
+\ \\
 
 \textsc{Resultado:}
 \begin{mvermelha}{Título da caixa mvermelha}
@@ -659,8 +740,11 @@ As caixas seguintes não requerem título.
 	Mais algum texto para complementar.   
 	\end{bxpreta} 
 \end{codex}
+\ \\
 
 \textsc{Resultado:}
+\ \\
+
 \begin{bxpreta}
 	Caixa de texto com \textbf{moldura preta} na lateral esquerda. 
 	
@@ -675,8 +759,11 @@ As caixas seguintes não requerem título.
 	Mais algum texto para complementar.  
 	\end{bxlaranja}
 \end{codex}
+\ \\
 
 \textsc{Resultado:}
+\ \\
+
 \begin{bxlaranja}
 	Caixa de texto com \textbf{moldura laranja} na lateral esquerda.
 	
@@ -691,8 +778,11 @@ As caixas seguintes não requerem título.
 	Mais algum texto para complementar.  
 	\end{bxcinza}
 \end{codex}
+\ \\ 
 
 \textsc{Resultado:}
+\ \\
+
 \begin{bxcinza}
 	Caixa de texto com \textbf{moldura cinza} na lateral esquerda. 
 	
@@ -707,8 +797,11 @@ As caixas seguintes não requerem título.
 	Mais algum texto para complementar.  
 	\end{bxazul}
 \end{codex}
+\ \\
 
  \textsc{Resultado:}
+ \ \\
+ 
 \begin{bxazul}
 	Caixa de texto com \textbf{moldura azul} na lateral esquerda. 
 	
@@ -723,8 +816,11 @@ As caixas seguintes não requerem título.
 	Mais algum texto para complementar.  
 	\end{bxvermelha}
 \end{codex}
+\ \\
 
 \textsc{Resultado:}
+\ \\
+
 \begin{bxvermelha}
 	Caixa de texto com \textbf{moldura vermelha} na lateral esquerda. 
 	
@@ -746,7 +842,7 @@ Trata-se esse pacote de um \textit{comando} e não de um ambiente.
 \item caixa vermelha com ícone de "x" ou "erro".
 \item caixa laranja com ícone de"!" ou exclamação.
 \end{itemize}
-
+\ \\
 
 \begin{codex}{Todos os comandos para alertmessage}
 	A. \alertinfo{caixa azul, com ícone "i"}
@@ -754,8 +850,10 @@ Trata-se esse pacote de um \textit{comando} e não de um ambiente.
 	C. \alerterror{caixa vermelha com ícone de "x" ou "erro"}
 	D. \alertwarning{caixa laranja com ícone de"!" ou exclamação}
 \end{codex}
+\ \\
 
 \textsc{Resultado:}
+\ \\
 
 A. \alertinfo{caixa azul, com ícone "i".}
 
@@ -769,13 +867,13 @@ D. \alertwarning{caixa laranja com ícone de"!" ou exclamação.}
 %=======================================================
 \chapter{Referências e Citações}
 
-Citações e referências no \LaTeX\ podem ser trabalhosas principalmente em razão da \qq{loucura} que são as normas ABNT para trabalhos acadêmicos. Sem adentrar muito na questão, menciono apenas que os pacotes para citação e referência aqui utilizados já estão em vias de se tornarem \qq{obsoletos} por causa da recente modificação (em 2023) das normas para citação (ABNT NBR 10520). Além disso, as referências (ABNT NBR 6023), cuja atualização em 2018 e correção em 2020, também sofreram modificações segundo a norma. Enfim, vamos ao que interessa.
+Citações e referências no \LaTeX\ podem ser trabalhosas principalmente em razão da \qq{loucura} que são as normas ABNT para trabalhos acadêmicos. Sem adentrar muito na questão, menciono apenas que os pacotes para citação e referência aqui utilizados já estão em vias de se tornarem \qq{obsoletos} por causa da recente modificação (em 2023) das normas para citação (ABNT NBR 10520). Além disso, as referências (ABNT NBR 6023), cuja atualização em 2018 e correção em 2020, também sofreram modificações. Enfim, vamos ao que interessa.
 
 Referências em \LaTeX\ são feitas em um arquivo à parte, cuja a extensão é | .bib |. Nesse projeto, o arquivo das referências chama-se \verb|referencias.bib|.
 
 Para cada tipo de referência - livro, artigo, capítulo de livro, sites, revistas, etc - existe uma entrada específica, isto é, um formato específico de registrar a referência.
 
-O exemplo a seguir é de um livro com apenas um autor. O código à esquerda é vazio e o segundo, á direita, a referência já preenchida\footnote{Ignorem a não obediência à margem. O ambiente \textit{verbatim} não a respeita.}. Em seguida, explico cada uma das linhas.
+O exemplo a seguir é de um livro com apenas um autor. O código à esquerda é vazio e o segundo, à direita, a referência já preenchida\footnote{Ignorem a não obediência à margem. O ambiente \textit{verbatim} não a respeita.}. Em seguida, explico cada uma das linhas.
 
 \begin{multicols}{2}
 \begin{verbatim}
@@ -804,7 +902,7 @@ translator = {Nícia Adan Bonatti},
 \end{multicols}
 
 
-{\textbf{@book{todorov2014,}} - Inicia-se a entrada com @ seguida do tipo (nesse caso, \textit{book}). Em seguida, abre-se a chave e inclui-se a identificação (ou chave de entrada), separando-a dos demais campos com uma vírgula ( , ). Essa chave pode ser o que quiser, desde que sirva para identifica o trabalho.
+{\textbf{@book{todorov2014,}} - Inicia-se a entrada com @ seguida do tipo (nesse caso, \textit{book}, porque é um livro). Em seguida, abre-se a chave e inclui-se a identificação (ou chave de entrada), separando-a dos demais campos com uma vírgula ( , ). Essa chave pode ser o que quiser, desde que sirva para identificar o trabalho.
 	
 {\textbf{author     = \{\},}} - Indica-se o nome do autor. O pacote utilizado (\verb|abntex2cite|) requer atenção às palavras acentuadas. Veja a documentação do pacote para uso de palavras acentuadas na construção das referências.
 
@@ -818,7 +916,7 @@ translator = {Nícia Adan Bonatti},
 
 {\textbf{year       = \{\},}} - Indica-se o ano de publicação.
 
-{\textbf{translator = \{\},}} - - Indica-se quem traduziu a obra. Se não houver, deixa-se em branco.
+{\textbf{translator = \{\},}} - Indica-se quem traduziu a obra. Se não houver, deixa-se em branco.
 
 É preciso obedecer às chaves e vírgulas, caso contrário, no momento da compilação, haverá erro.
 
@@ -833,7 +931,7 @@ Ambos os pacotes contém exemplos de uso e, também, a acentuação necessária 
 
 Há, também, um gerador \textit{online} de referências em \LaTeX. O endereço é \url{https://truben.no/latex/bibtex/}. No entanto, advirto que existe a possibilidade de erro porque os campos do pacote \verb|abntex2cite|, aqui utilizado, não são os mesmos gerados por esse \textit{site}. Nada impede o teste!!!
 
-Após construída a lista de referências (ou o banco de dados de referências), é possível citar as obras no texto. Citar \qq{manualmente} a uma referência e depois incluí-la no arquivo .bib fará p \LaTeX\ ignorar tal referência. isso porque somente se referencia o que se cita no texto e, como o \LaTeX\ faz por você esse processo, ele o faz também com as citações.
+Após construída a lista de referências (ou o banco de dados de referências), é possível citar as obras no texto. Citar \qq{manualmente} uma referência e depois incluí-la no arquivo .bib fará o \LaTeX\ ignorar tal referência. Ou seja: ela não será incluída na seção \textbf{Referências}. Isso porque somente se referencia o que se cita no texto e, como o \LaTeX\ faz por você esse processo, mas somente se a citação \LaTeX\ (ou seja, com um comando) for utilizada.
 
 Vejamos um exemplo. No arquivo \verb|referencias.bib| existe a seguinte entrada de exemplo:
 
@@ -854,14 +952,15 @@ Vejamos um exemplo. No arquivo \verb|referencias.bib| existe a seguinte entrada 
 	}
 \end{verbatim}
 
-Se eu optar por citar de modo manual, por exemplo, assim: 
+Se eu optar por citar de modo manual, por exemplo, assim (itálico): 
 \ \\
 
-\textit{De acordo com Smurf (1980), as trufas são deliciosas e por isso Gargamel as quer.}
+\fbox{\textit{De acordo com Smurf (1980), as trufas são deliciosas e por isso Gargamel as quer.}}
 \ \\
+
 Porém, se eu citar utilizando o comando próprio de citações (\verb|\cite|), após a compilação, a referência será incluída na seção \textbf{Referências} conforme a ABNT NBR 6023. Por exemplo
 
-\textit{De acordo com \cite{Smurf1980}, as trufas são deliciosas e por isso Gargamel as quer.}
+\fbox{\textit{De acordo com \cite{Smurf1980}, as trufas são deliciosas e por isso Gargamel as quer.}}
 
 Observe que agora a citação aparece em cor azul, está \textit{hiperlinkada} apontando diretamente para a referência na seção... \textbf{Referências}!!!
 
@@ -874,18 +973,57 @@ Os comandos para citar são:
 O primeiro é utilizado para citações diretas enquanto o segundo, para citações indiretas.
 
 Nos dois casos é possível indicar o número da página desta forma:
+\ \\
 
 \begin{codex}{Códigos para citações incluindo a página}
 \cite[p. 35]{Flintstones1900}
 
 \citeonline[págs. 25-50]{Thor2017}
 \end{codex}
+\ \\
 
 \textsc{Resultado:}
 
 Assim, vemos que não é \qq{sempre que se come uma carne de tiranossauro rex com temperos indianos} \cite[p. 35]{Flintstones1900}.
 
 Foi, de fato, algo inesperado. Como nos lembrou \citeonline[págs. 25-50]{Thor2017}, o martelo estava sem controle absoluto e eu não se pode fazer nada.
+
+\chapter{Playground}
+
+Utilize esse capítulo para praticar o uso do \LaTeX.
+
+Use os ambientes e os comandos deste modelo para ter certeza de como utilizá-los durante a escrita do trabalho.
+
+\textbf{Inicie aqui.}
+
+
+
+
+%==========================================
+\chapter{Considerações finais}
+
+Todos os pacotes utilizados nesse modelo foram testados de modo \textit{offline}, isto é, com a distribuição \TeX Live 2021 instalada no \textbf{OpenSuSe Leap 15.5}. Ver \textit{log} abaixo:
+
+\begin{verbatim}
+	pdfTeX 3.141592653-2.6-1.40.22 (TeX Live 2021/TeX Live for SUSE Linux)
+	kpathsea version 6.3.3
+	Copyright 2021 Han The Thanh (pdfTeX) et al.
+	There is NO warranty.  Redistribution of this software is
+	covered by the terms of both the pdfTeX copyright and
+	the Lesser GNU General Public License.
+	For more information about these matters, see the file
+	named COPYING and the pdfTeX source.
+	Primary author of pdfTeX: Han The Thanh (pdfTeX) et al.
+	Compiled with libpng 1.6.34; using libpng 1.6.34
+	Compiled with zlib 1.2.11; using zlib 1.2.13
+	Compiled with xpdf version 4.03
+\end{verbatim}
+
+Não usei, após atualização deste modelo, o \textit{Overleaf} para testes.
+
+Todavia, como as atualizações feitas não alteraram os pacotes principais, possivelmente essa versão, também, irá funcionar \textit{on-line}.
+
+Espero que esse modelo seja útil.
 %===============================
 %INÍCIO DOS ELEMENTOS PÓS TEXTUAIS (REFERÊNCIAS, ANEXOS, APÊNDICES)
 
